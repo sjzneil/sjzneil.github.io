@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" />
+	<title>Hello World</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- 最新 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<script>
+		$(document).ready(function($) {
+			$('#aaa').click(function() {
+				alert('OK');
+			});
+			$('#img').click(function() {
+				window.location='http://www.baidu.com';
+			});
+		});
+	</script>
+	<div class="row">
+		<div class="col-xs-4">
+			<!-- Single button -->
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					Action <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li>
+						<a href="#">
+							Action
+						</a>
+					</li>
+					<li>
+						<a id='aaa' href="#">
+							Another action
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Something else here
+						</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#">
+							Separated link
+						</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<div class="col-xs-3">
+			<img src="img/518.jpg" class="img-responsive" alt="Responsive image">
+		</div><!-- /input-group -->
+		<div class="input-group col-xs-32">
+			<input type="text" class="form-control">
+			<span class="input-group-btn">
+				<button class="btn btn-primary" type="button">
+					Go!
+				</button> </span>
+		</div><!-- /input-group -->
+	</div>
+	<div class="row">
+
+		<div class="col-xs-12">
+			<img id="img" src="img/518.jpg" class="img-responsive" alt="Responsive image">
+		</div><!-- /input-group -->
+		
+	</div>
+</body>
+</html>

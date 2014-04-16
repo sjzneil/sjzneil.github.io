@@ -1,7 +1,72 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml"  dir="ltr">
+	<head>
+		<title>Camera and Video Control with HTML5 Example</title>
+		<meta name="description" content="Access the desktop camera and video using HTML, JavaScript, and Canvas.  The camera may be controlled using HTML5 and getUserMedia." />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<style>
+			#left {
+				float: left;
+				display: inline;
+			}
+			#right {
+				float: right;
+			}
+			#div1 {
+				height: 300px;
+				width: 300px;
+				position: fixed;
+				left: -100px;
+				background: #0ff;
+				float: left;
+				z-index: -1;
+			}
+			#div2 {
+				position: fixed;
+				left: 200px;
+				height: 300px;
+				width: 300px;
+				background: #0f0;
+				float: left;
+				z-index: -1;
+			}
+			#div3 {
+				position: fixed;
+				left: 500px;
+				height: 300px;
+				width: 300px;
+				background: #ff0;
+				float: left;
+				z-index: -1;
+			}
+		</style>
+		<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var left=500;
+			$(document).ready(function() {
+				$("#right").click(function() {
+					left-=100;
+//					alert("msg");
+					$('#div3').css("left",""+left+"px");
+				});
+				$("#left").click(function() {
+					left+=100;
+//					alert("msg");
+					$('#div3').css("left",""+left+"px");
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+		<button id="left">
+			left
+		</button>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<button id="right">
+			right
+		</button>
+	</body>
 </html>
