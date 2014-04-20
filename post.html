@@ -14,18 +14,59 @@
 
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+	<script src="http://embeddedjavascript.googlecode.com/files/ejs_0.9_alpha_1_production.js"></script>
 </head>
 <body>
 	<script>
+		function render(url, data) {
+			$.get(url, function(template) {
+				var template = Handlebars.compile(template);
+				var html = template(data);
+//				alert(html);
+				$("#attach").empty();
+				$("#attach").append(html);
+			});
+		}
+
+
+		Handlebars.render = render;
 		$(document).ready(function($) {
 			$('#aaa').click(function() {
-				alert('OK');
+				//				alert('OK');
+				Handlebars.render('handlebars_temp.html', {
+					title : "title",
+					body : "This is my first post!"
+				});
+				//				$.get('handlebars_temp.html', function(template) {
+				//					//    				var source   = $("#temp").html();
+				//					var template = Handlebars.compile(template);
+				//					var context = {
+				//						title : "My New Post",
+				//						body : "This is my first post!"
+				//					}
+				//					var html = template(context);
+				//					alert(html);
+				//
+				//				});
+
+				//				var source   = $("#temp").html();
+				//				var template = Handlebars.compile(source);
+				//				var context = {title: "My New Post", body: "This is my first post!"}
+				//				var html    = template(context);
+				//				var data={
+				//					title:'title_title'
+				//				};
+				//				var html2 = new EJS({url: './temp.html'}).render(data);
+				//
+				//				alert(html2);
 			});
 			$('#img').click(function() {
-				window.location='http://www.baidu.com';
+				window.location = 'http://www.baidu.com';
 			});
 		});
 	</script>
+
 	<div class="row">
 		<div class="col-xs-4">
 			<!-- Single button -->
@@ -75,6 +116,9 @@
 		<div class="col-xs-12">
 			<img id="img" src="img/518.jpg" class="img-responsive" alt="Responsive image">
 		</div><!-- /input-group -->
+
+	</div>
+	<div id="attach">
 		
 	</div>
 </body>
