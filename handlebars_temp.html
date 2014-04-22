@@ -1,15 +1,9 @@
-<div>
-	<script>
-		function notify(){
-			alert("notify");
-		}
-		alert("load");
-	</script>
-	<div class="entry">
-	<h1 onclick="notify();">{{title}}</h1>
-	<div class="body">
-	{{body}}
+<div class="row">
+		
+		<div class="col-xs-6">
+			<img id="img" src="img/518.jpg" class="img-responsive" alt="Responsive image">
+		</div><!-- /input-group -->
+		<div class="col-xs-6">
+			{{title}}:{{body}}
+		</div>
 	</div>
-	</div>
-
-</div>
