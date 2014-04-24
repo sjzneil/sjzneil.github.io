@@ -21,6 +21,7 @@
 </head>
 <body>
 	<script>
+		// Poisoning Object.prototype
 		function render(url, data) {
 			$.get(url, function(template) {
 				var template = Handlebars.compile(template);
@@ -33,8 +34,28 @@
 
 
 		Handlebars.render = render;
+
+		Object.defineProperty(Object.prototype, "bar", {
+			value : 1,
+			enumerable : false
+		});
+		var foo = {
+			moo : 2
+		};
+		for (var i in foo) {
+			//			if (foo.hasOwnProperty(i)) {
+			console.log(i);
+			//			}
+		};
 		$(document).ready(function($) {
 			$.getScript("./js/myjs.js");
+			function onInputFileChange() {
+				var url = URL.createObjectURL("file:///d:/a.mp4");
+				console.log(url);
+				document.getElementById("video").src = url;
+			}
+
+			onInputFileChange();
 			$('#aaa').click(function() {
 				//				alert('OK');
 				Handlebars.render('handlebars_temp.html', {
@@ -65,7 +86,7 @@
 				//				alert(html2);
 			});
 			$('#img').click(function() {
-				window.location = 'http://www.baidu.com';
+				onInputFileChange();
 			});
 		});
 	</script>
@@ -158,5 +179,11 @@
 		</div><!-- /input-group -->
 
 	</div>
+	<div class="row">
+		<video id="video" width="320" height="240" controls>
+
+		</video>
+	</div>
+
 </body>
 </html>

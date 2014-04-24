@@ -43,16 +43,24 @@
 		<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			var left=500;
+			var func=function(val){
+				alert('construct');
+			}
+			func.a=function(val){
+				alert('func');
+			}
 			$(document).ready(function() {
 				$("#right").click(function() {
 					left-=100;
 //					alert("msg");
-					$('#div3').css("left",""+left+"px");
+//					$('#div3').css("left",""+left+"px");
+					func('a');
 				});
 				$("#left").click(function() {
 					left+=100;
 //					alert("msg");
-					$('#div3').css("left",""+left+"px");
+//					$('#div3').css("left",""+left+"px");
+					func.a('b');
 				});
 			});
 
