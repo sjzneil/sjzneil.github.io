@@ -24,6 +24,13 @@
 			#select-category {
 				height: 50px;
 			}
+			.bias-input-group .input-group-addon + .input-group-btn > .btn {
+				border-radius: 0;
+			}
+			.bias-input-group .input-group-addon + .input-group-btn + .input-group-addon {
+				border-right: 0;
+				border-left: 0;
+			}
 		</style>
 		<script>
 			$(document).ready(function(e) {
@@ -49,7 +56,7 @@
 							<span data-bind="bs-drp-sel-label">全部</span>
 							<input type="hidden" name="category" data-bind="bs-drp-sel-value" value="all">
 							<span class="caret"></span>
-							
+
 						</button>
 						<ul class="dropdown-menu" role="menu" style=" max-height: 300px; overflow: scroll; overflow-y: scroll; overflow-x: hidden; ">
 							<!-- Loop -->
@@ -73,7 +80,7 @@
 									茶
 								</a>
 							</li>
-							
+
 							<!-- END Loop -->
 						</ul>
 					</div>
@@ -82,6 +89,62 @@
 					<div>
 						多多点
 					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div>
+						<img src="img/cake.jpg" class="img-responsive"/>
+						<div>99元</div>
+						<div>99元</div>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div>
+						<img src="img/cake.jpg" class="img-responsive"/>
+						<div>99元</div>
+						<div>99元</div>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div>
+						<img src="img/cake.jpg" class="img-responsive"/>
+						<div>99元</div>
+						<div>99元</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					
+				</div>
+				<div class="col-xs-4">
+					
+				</div>
+				<div class="col-xs-4">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					
+				</div>
+				<div class="col-xs-4">
+					
+				</div>
+				<div class="col-xs-4">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					
+				</div>
+				<div class="col-xs-4">
+					
+				</div>
+				<div class="col-xs-4">
+					
 				</div>
 			</div>
 		</div>
