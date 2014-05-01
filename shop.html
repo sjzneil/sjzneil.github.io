@@ -31,7 +31,7 @@
 				$(document).on('click', '.bs-dropdown-to-select-group .dropdown-menu li', function(event) {
 					var $target = $(event.currentTarget);
 					$target.closest('.bs-dropdown-to-select-group').find('[data-bind="bs-drp-sel-value"]').val($target.attr('data-value')).end().children('.dropdown-toggle').dropdown('toggle');
-					$target.closest('.bs-dropdown-to-select-group').find('[data-bind="bs-drp-sel-label"]').text($target.attr('data-value'));
+					$target.closest('.bs-dropdown-to-select-group').find('[data-bind="bs-drp-sel-label"]').text($target.attr('data-name'));
 					/*$target.text()*/
 					return false;
 				});
@@ -46,53 +46,34 @@
 				<div class="col-xs-4">
 					<div id="select-category" class="input-group-btn bs-dropdown-to-select-group">
 						<button type="button" class="btn btn-default dropdown-toggle as-is bs-dropdown-to-select" data-toggle="dropdown" tabindex="-1">
-							<span data-bind="bs-drp-sel-label">us</span>
-							<input type="hidden" name="country_path" data-bind="bs-drp-sel-value" value="us">
+							<span data-bind="bs-drp-sel-label">全部</span>
+							<input type="hidden" name="category" data-bind="bs-drp-sel-value" value="all">
 							<span class="caret"></span>
 							<span class="sr-only">Toggle Dropdown</span>
 						</button>
 						<ul class="dropdown-menu" role="menu" style=" max-height: 300px; overflow: scroll; overflow-y: scroll; overflow-x: hidden; ">
 							<!-- Loop -->
-							<li data-value="af">
+							<li data-value="all" data-name="全部">
 								<a href="#">
-									af - Afghanistan
+									全部
 								</a>
 							</li>
-							<li data-value="ax">
+							<li data-value="cake" data-name="蛋糕">
 								<a href="#">
-									ax - Aland Islands
+									蛋糕
 								</a>
 							</li>
-							<li data-value="al">
+							<li data-value="coffee" data-name="咖啡">
 								<a href="#">
-									al - Albania
+									咖啡
 								</a>
 							</li>
-							<li data-value="dz">
+							<li data-value="tea" data-name="茶">
 								<a href="#">
-									dz - Algeria
+									茶
 								</a>
 							</li>
-							<li data-value="as">
-								<a href="#">
-									as - American Samoa
-								</a>
-							</li>
-							<li data-value="ad">
-								<a href="#">
-									ad - Andorra
-								</a>
-							</li>
-							<li data-value="ao">
-								<a href="#">
-									ao - Angola
-								</a>
-							</li>
-							<li data-value="ai">
-								<a href="#">
-									ai - Anguilla
-								</a>
-							</li>
+							
 							<!-- END Loop -->
 						</ul>
 					</div>
