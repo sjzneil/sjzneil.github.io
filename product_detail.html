@@ -5,16 +5,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Latest compiled and minified CSS -->
-    <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
-    <!--
-    <script src="shop/bootstrap-select.min.js"></script>
-    <link href="shop/bootstrap-select.min.css" rel="stylesheet" />
--->
+
+    <script src="https://raw.githubusercontent.com/danielfarrell/bootstrap-combobox/master/js/bootstrap-combobox.js"></script>
+    <link href="https://raw.githubusercontent.com/danielfarrell/bootstrap-combobox/master/css/bootstrap-combobox.css" rel="stylesheet">
+
     <style>
         body {
             background-color: #FFFFcc
@@ -33,14 +33,14 @@
             font-size: 20px;
             color: #ffffff;
         }
-        .font-10 {
+        .font-15 {
             font-size: 15px;
         }
     </style>
     <script>
         $(document).ready(function (e) {
             $('.selectpicker').selectpicker();
-
+            //            $('.combobox').combobox();
         });
     </script>
     <title>蛋糕详情</title>
@@ -123,8 +123,23 @@
                 <option value="two">8寸，119元</option>
                 <option value="three">10元，139元</option>
             </select>
-
+            <p>
+                <br />
+            </p>
         </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary btn-lg btn-block">下单</button>
+        </div>
+        <!--
+        <select class="combobox">
+            <option></option>
+            <option value="PA">Pennsylvania</option>
+            <option value="CT">Connecticut</option>
+            <option value="NY">New York</option>
+            <option value="MD">Maryland</option>
+            <option value="VA">Virginia</option>
+        </select>
+-->
     </div>
 </body>
 
