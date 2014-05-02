@@ -20,11 +20,14 @@
             background-color: #0074C7;
             height: 50px;
         }
-        #title {
+        .center {
             height: 50px;
             line-height: 50px;
             text-align: center;
             vertical-align: middle;
+            
+        }
+        #title{
             font-size: 20px;
             color: #ffffff;
         }
@@ -47,7 +50,7 @@
         .price {
             text-align: right;
         }
-        .img-max{
+        .img-max {
             max-height: 200px;
         }
     </style>
@@ -56,7 +59,9 @@
             var groupcount = data.length / groupsize;
             for (var i = 0; i < groupcount; i++) {
                 var subarray = data.slice(i * groupsize, groupsize);
-                var html = template({items:subarray});
+                var html = template({
+                    items: subarray
+                });
                 $(div).append(html);
             }
         }
@@ -100,7 +105,7 @@
                 price: '99元',
                 image: "http://www.21cake.com/themes/cake21/images/head1.jpg"
 }, ];
-//            var datas=['aaa','bbb'];
+            //            var datas=['aaa','bbb'];
             render("./shop_template/shop_home_item_template.html", store_items, 4, "#list");
         });
     </script>
@@ -145,7 +150,7 @@
                     </ul>
                 </div>
             </div>
-            <div id="title" class="col-xs-4 center-block">
+            <div id="title" class="col-xs-4 center-block center">
                 <div>
                     多多点
                 </div>
@@ -238,6 +243,27 @@
             </div>
             -->
         </div>
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3 center">
+                        点单
+                    </div>
+                    <div class="col-xs-3 center">
+                        优惠
+                    </div>
+                    <div class="col-xs-3 center">
+                        购物车
+                    </div>
+                    <div class="col-xs-3 center">
+                        关于
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
     </div>
 </body>
 
