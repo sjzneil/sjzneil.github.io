@@ -25,9 +25,8 @@
             line-height: 50px;
             text-align: center;
             vertical-align: middle;
-            
         }
-        #title{
+        #title {
             font-size: 20px;
             color: #ffffff;
         }
@@ -53,7 +52,6 @@
         .img-max {
             max-height: 200px;
             min-height: 170px;
-            
         }
     </style>
     <script>
@@ -74,7 +72,10 @@
                 render_row(template, data, groupsize, div);
             });
         }
-
+        function clickCake(id){
+//            alert(id);
+            window.location="./product_detail.html";
+        }
         $(document).ready(function (e) {
 
             $(document).on('click', '.bs-dropdown-to-select-group .dropdown-menu li', function (event) {
@@ -85,28 +86,31 @@
                 return false;
             });
 
-
             var store_items = [{
+                id: 0,
                 name: '蛋糕',
                 desc: '特价',
                 price: '99元',
                 image: "./img/cake.jpg"
-}, {
+   }, {
+                id: 1,
                 name: '蛋糕',
                 desc: '买二送一',
                 price: '99元',
                 image: "./img/cake.jpg"
-}, {
+   }, {
+                id: 2,
                 name: '蛋糕',
                 desc: '值得买',
                 price: '99元',
                 image: "./img/cake.jpg"
-}, {
+   }, {
+                id: 3,
                 name: '蛋糕',
                 desc: '吐血白菜价',
                 price: '99元',
                 image: "./img/cake.jpg"
-}, ];
+   }, ];
             //            var datas=['aaa','bbb'];
             render("./shop_template/shop_home_item_template.html", store_items, 4, "#list");
         });
@@ -160,109 +164,116 @@
         </div>
         <div id="list">
             <!--
-            <div class="row">
-                <div class="col-xs-6 col-md-3">
-                    <div>
-                        <img src="img/cake.jpg" class="img-responsive" />
-                        <div class="row">
-                            <div class="col-xs-7 font-10">神马蛋糕</div>
-                            <div class="col-xs-5 pull-right font-10  price">99元</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 promot-text font-10">值得买</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div>
-                        <img src="img/cake.jpg" class="img-responsive" />
-                        <div class="row">
-                            <div class="col-xs-7 font-10">神马蛋糕</div>
-                            <div class="col-xs-5 pull-right font-10 price">99元</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 promot-text font-10">买二送一</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div>
-                        <img src="img/cake.jpg" class="img-responsive" />
-                        <div class="row">
-                            <div class="col-xs-7 font-10">神马蛋糕</div>
-                            <div class="col-xs-5 pull-right font-10  price">99元</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 promot-text font-10">特价</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
-                    <div>
-                        <img src="img/cake.jpg" class="img-responsive" />
-                        <div class="row">
-                            <div class="col-xs-7 font-10">神马蛋糕</div>
-                            <div class="col-xs-5 pull-right font-10  price">99元</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 promot-text font-10">特特价</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4">
+				<div class="row">
+				<div class="col-xs-6 col-md-3">
+				<div>
+				<img src="img/cake.jpg" class="img-responsive" />
+				<div class="row">
+				<div class="col-xs-7 font-10">神马蛋糕</div>
+				<div class="col-xs-5 pull-right font-10  price">99元</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-12 promot-text font-10">值得买</div>
+				</div>
+				</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+				<div>
+				<img src="img/cake.jpg" class="img-responsive" />
+				<div class="row">
+				<div class="col-xs-7 font-10">神马蛋糕</div>
+				<div class="col-xs-5 pull-right font-10 price">99元</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-12 promot-text font-10">买二送一</div>
+				</div>
+				</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+				<div>
+				<img src="img/cake.jpg" class="img-responsive" />
+				<div class="row">
+				<div class="col-xs-7 font-10">神马蛋糕</div>
+				<div class="col-xs-5 pull-right font-10  price">99元</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-12 promot-text font-10">特价</div>
+				</div>
+				</div>
+				</div>
+				<div class="col-xs-6 col-md-3">
+				<div>
+				<img src="img/cake.jpg" class="img-responsive" />
+				<div class="row">
+				<div class="col-xs-7 font-10">神马蛋糕</div>
+				<div class="col-xs-5 pull-right font-10  price">99元</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-12 promot-text font-10">特特价</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-4">
 
-                </div>
-                <div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
 
-                </div>
-                <div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4">
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-4">
 
-                </div>
-                <div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
 
-                </div>
-                <div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4">
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-4">
 
-                </div>
-                <div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
 
-                </div>
-                <div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
 
-                </div>
-            </div>
-            -->
+				</div>
+				</div>
+				-->
         </div>
         <div class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3 center">
-                        <a href="#">点单</a>
+                        <a href="#">
+								点单
+							</a>
                     </div>
                     <div class="col-xs-3 center">
-                        <a href="#">优惠</a>
+                        <a href="#">
+								优惠
+							</a>
                     </div>
                     <div class="col-xs-3 center">
-                        <a href="#">购物车</a>
+                        <a href="#">
+								购物车
+							</a>
                     </div>
                     <div class="col-xs-3 center">
-                        <a href="#">关于</a>
+                        <a href="#">
+								关于
+							</a>
                     </div>
                 </div>
             </div>
-
 
         </div>
 
