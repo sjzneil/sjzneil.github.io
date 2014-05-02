@@ -1,17 +1,17 @@
-var store_items = [{
-    name: '蛋糕',
-    desc: '特价',
-    price: 99
-}, {
-    name: '蛋糕',
-    desc: '买二送一',
-    price: 99
-}, {
-    name: '蛋糕',
-    desc: '值得买',
-    price: 99
-}, {
-    name: '蛋糕',
-    desc: '吐血白菜价',
-    price: 99
-}, ];
+
+
+function render_row(template, data, groupsize, div) {
+    var groupcount = data.length / groupsize;
+    for (var i = 0; i < groupcount; i++) {
+        var subarray = data.slice(i * groupsize, groupsize);
+        var html = template(data);
+        $(div).append(html);
+    }
+}
+
+function render(url, data, groupsize, div) {
+    $.get(url, function (template) {
+        var template = Handlebars.compile(template);
+        render_row(template, data, groupsize, div);
+    });
+}

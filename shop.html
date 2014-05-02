@@ -10,6 +10,7 @@
     <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
 
     <style>
         body {
@@ -43,8 +44,30 @@
         .font-10 {
             font-size: 10px;
         }
+        .price {
+            text-align: right;
+        }
+        .img-max{
+            max-height: 200px;
+        }
     </style>
     <script>
+        function render_row(template, data, groupsize, div) {
+            var groupcount = data.length / groupsize;
+            for (var i = 0; i < groupcount; i++) {
+                var subarray = data.slice(i * groupsize, groupsize);
+                var html = template({items:subarray});
+                $(div).append(html);
+            }
+        }
+
+        function render(url, data, groupsize, div) {
+            $.get(url, function (template) {
+                var template = Handlebars.compile(template);
+                render_row(template, data, groupsize, div);
+            });
+        }
+
         $(document).ready(function (e) {
 
             $(document).on('click', '.bs-dropdown-to-select-group .dropdown-menu li', function (event) {
@@ -55,6 +78,30 @@
                 return false;
             });
 
+
+            var store_items = [{
+                name: '蛋糕',
+                desc: '特价',
+                price: '99元',
+                image: "./img/cake.jpg"
+}, {
+                name: '蛋糕',
+                desc: '买二送一',
+                price: '99元',
+                image: "http://www.21cake.com/themes/cake21/images/head1.jpg"
+}, {
+                name: '蛋糕',
+                desc: '值得买',
+                price: '99元',
+                image: "http://www.21cake.com/themes/cake21/images/head1.jpg"
+}, {
+                name: '蛋糕',
+                desc: '吐血白菜价',
+                price: '99元',
+                image: "http://www.21cake.com/themes/cake21/images/head1.jpg"
+}, ];
+//            var datas=['aaa','bbb'];
+            render("./shop_template/shop_home_item_template.html", store_items, 4, "#list");
         });
     </script>
     <title>多多点</title>
@@ -104,88 +151,92 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <div>
-                    <img src="img/cake.jpg" class="img-responsive" />
-                    <div class="row">
-                        <div class="col-xs-7 font-10">神马蛋糕</div>
-                        <div class="col-xs-5 pull-right font-10">99元</div>
+        <div id="list">
+            <!--
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div>
+                        <img src="img/cake.jpg" class="img-responsive" />
+                        <div class="row">
+                            <div class="col-xs-7 font-10">神马蛋糕</div>
+                            <div class="col-xs-5 pull-right font-10  price">99元</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 promot-text font-10">值得买</div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 promot-text font-10">值得买</div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div>
+                        <img src="img/cake.jpg" class="img-responsive" />
+                        <div class="row">
+                            <div class="col-xs-7 font-10">神马蛋糕</div>
+                            <div class="col-xs-5 pull-right font-10 price">99元</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 promot-text font-10">买二送一</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div>
+                        <img src="img/cake.jpg" class="img-responsive" />
+                        <div class="row">
+                            <div class="col-xs-7 font-10">神马蛋糕</div>
+                            <div class="col-xs-5 pull-right font-10  price">99元</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 promot-text font-10">特价</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div>
+                        <img src="img/cake.jpg" class="img-responsive" />
+                        <div class="row">
+                            <div class="col-xs-7 font-10">神马蛋糕</div>
+                            <div class="col-xs-5 pull-right font-10  price">99元</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 promot-text font-10">特特价</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3">
-                <div>
-                    <img src="img/cake.jpg" class="img-responsive" />
-                    <div class="row">
-                        <div class="col-xs-7 font-10">神马蛋糕</div>
-                        <div class="col-xs-5 pull-right font-10">99元</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 promot-text font-10">买二送一</div>
-                    </div>
+            <div class="row">
+                <div class="col-xs-4">
+
+                </div>
+                <div class="col-xs-4">
+
+                </div>
+                <div class="col-xs-4">
+
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3">
-                <div>
-                    <img src="img/cake.jpg" class="img-responsive" />
-                    <div class="row">
-                        <div class="col-xs-7 font-10">神马蛋糕</div>
-                        <div class="col-xs-5 pull-right font-10">99元</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 promot-text font-10">特价</div>
-                    </div>
+            <div class="row">
+                <div class="col-xs-4">
+
+                </div>
+                <div class="col-xs-4">
+
+                </div>
+                <div class="col-xs-4">
+
                 </div>
             </div>
-            <div class="col-xs-6 col-md-3">
-                <div>
-                    <img src="img/cake.jpg" class="img-responsive" />
-                    <div class="row">
-                        <div class="col-xs-7 font-10">神马蛋糕</div>
-                        <div class="col-xs-5 pull-right font-10">99元</div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 promot-text font-10">特特价</div>
-                    </div>
+            <div class="row">
+                <div class="col-xs-4">
+
+                </div>
+                <div class="col-xs-4">
+
+                </div>
+                <div class="col-xs-4">
+
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-
-            </div>
-            <div class="col-xs-4">
-
-            </div>
-            <div class="col-xs-4">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-
-            </div>
-            <div class="col-xs-4">
-
-            </div>
-            <div class="col-xs-4">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-
-            </div>
-            <div class="col-xs-4">
-
-            </div>
-            <div class="col-xs-4">
-
-            </div>
+            -->
         </div>
     </div>
 </body>

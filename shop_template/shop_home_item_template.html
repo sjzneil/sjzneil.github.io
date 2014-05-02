@@ -1,0 +1,18 @@
+<div class="row">
+    {{#each items}}
+    <div class="col-xs-6 col-md-3">
+        <div>
+            <div class="row">
+                <img src="{{image}}" class="img-responsive col-xs-12 img-max" />
+            </div>
+            <div class="row">
+                <div class="col-xs-7 font-10">{{name}}</div>
+                <div class="col-xs-5 pull-right font-10 price">{{price}}</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 promot-text font-10">{{desc}}</div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
