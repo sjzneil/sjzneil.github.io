@@ -44,19 +44,26 @@ $(document).on('focusin', '.input-number', function (event) {
 $(document).on('change', '.input-number', function (event) {
     event.preventDefault();
     var $target = $(event.currentTarget);
-    minValue =  parseInt($(this).attr('min'));
-    maxValue =  parseInt($(this).attr('max'));
-    valueCurrent = parseInt($(this).val());
+    minValue =  parseInt($target.attr('min'));
+    maxValue =  parseInt($target.attr('max'));
+    valueCurrent = parseInt($target.val());
     
     name = $target.attr('name');
     if(valueCurrent >= minValue) {
-        $target.closest(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled')
+        var node=$target.closest('.input-group').find(".btn-number[data-type='minus'][data-field='"+name+"']");
+        node.removeAttr('disabled');
+        if(inputNumberChange){
+            inputNumberChange($target,valueCurrent);
+        }
     } else {
         alert('Sorry, the minimum value was reached');
         $target.val($target.data('oldValue'));
     }
     if(valueCurrent <= maxValue) {
-        $target.closest(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+        $target.closest('.input-group').find(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled');
+        if(inputNumberChange){
+            inputNumberChange($target,valueCurrent);
+        }
     } else {
         alert('Sorry, the maximum value was reached');
         $target.val($target.data('oldValue'));
