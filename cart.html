@@ -11,7 +11,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
-
+    <link rel="stylesheet" href="./css/mycss.css">
     <!--
     <script src="https://raw.githubusercontent.com/danielfarrell/bootstrap-combobox/master/js/bootstrap-combobox.js"></script>
     <link href="https://raw.githubusercontent.com/danielfarrell/bootstrap-combobox/master/css/bootstrap-combobox.css" rel="stylesheet">
@@ -37,12 +37,29 @@
         }
         .font-15 {
             font-size: 15px;
-            vertical-align: middle
+            vertical-align: middle;
+        }
+        .bottom {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+        }
+        .order-cell {
+            height: 130px;
+        }
+        .order-cell-info {
+            height: 100px;
+            /*            position: relative;*/
+        }
+        .order-img {
+            width: auto;
+            height: 100px;
         }
     </style>
     <script>
         $(document).ready(function (e) {
-            $('.selectpicker').selectpicker();
+//            $.getScript("./js/myjs.js");
+//            $('.selectpicker').selectpicker();
             //            $('.combobox').combobox();
         });
     </script>
@@ -58,7 +75,67 @@
                 </div>
             </div>
         </div>
+        <div id="list">
+            <div class="row order-cell">
+                <img src="./img/cake.jpg" alt="" class="col-xs-1 order-img">
+                <div class="col-xs-8 order-cell-info">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            生日蛋糕 8寸
+                        </div>
+                    </div>
+                    <div class="row bottom">
+                        <div class="col-xs-4">
+                            119元
+                        </div>
+                        <div class="input-group col-xs-5 pull-right">
+                            <span class="input-group-btn">
+						<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+							<span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                            </span>
+                            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                            <span class="input-group-btn">
+						<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+							<span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row order-cell">
+                <img src="./img/cake.jpg" alt="" class="col-xs-1 order-img">
+                <div class="col-xs-8 order-cell-info">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            生日蛋糕 8寸
+                        </div>
+                    </div>
+                    <div class="row bottom">
+                        <div class="col-xs-4 font-15">
+                            119元
+                        </div>
+
+                        <div class="input-group col-xs-5 pull-right">
+                            <span class="input-group-btn">
+						<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+							<span class="glyphicon glyphicon-minus"></span>
+                            </button>
+                            </span>
+                            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">
+                            <span class="input-group-btn">
+						<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+							<span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </body>
-
+<script src="./js/myjs.js"></script>
 </html>

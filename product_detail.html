@@ -45,6 +45,9 @@
             $('.selectpicker').selectpicker();
             //            $('.combobox').combobox();
         });
+        function addtocart(item){
+            window.location="./cart.html";
+        }
     </script>
     <title>蛋糕详情</title>
 </head>
@@ -133,7 +136,7 @@
             <p>
                 <br />
             </p>
-            <button type="button" class="btn btn-primary btn-lg btn-block">下单</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="addtocart({})">下单</button>
         </div>
         <!--
         <select class="combobox">
