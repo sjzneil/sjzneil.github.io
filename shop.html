@@ -1,152 +1,193 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<!-- Latest compiled and minified CSS -->
-		<link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-		<style>
-			.bar {
-				background-color: #0074C7;
-				height: 50px;
-			}
-			#title {
-				height: 50px;
-				line-height: 50px;
-				text-align: center;
-				vertical-align: middle;
-			}
-			#select-category {
-				height: 50px;
-			}
-			.bias-input-group .input-group-addon + .input-group-btn > .btn {
-				border-radius: 0;
-			}
-			.bias-input-group .input-group-addon + .input-group-btn + .input-group-addon {
-				border-right: 0;
-				border-left: 0;
-			}
-		</style>
-		<script>
-			$(document).ready(function(e) {
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Latest compiled and minified CSS -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-				$(document).on('click', '.bs-dropdown-to-select-group .dropdown-menu li', function(event) {
-					var $target = $(event.currentTarget);
-					$target.closest('.bs-dropdown-to-select-group').find('[data-bind="bs-drp-sel-value"]').val($target.attr('data-value')).end().children('.dropdown-toggle').dropdown('toggle');
-					$target.closest('.bs-dropdown-to-select-group').find('[data-bind="bs-drp-sel-label"]').text($target.attr('data-name'));
-					/*$target.text()*/
-					return false;
-				});
+    <style>
+        body {
+            background-color: #FFFFcc
+        }
+        .bar {
+            background-color: #0074C7;
+            height: 50px;
+        }
+        #title {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 20px;
+            color: #ffffff;
+        }
+        #select-category {
+            height: 50px;
+        }
+        .bias-input-group .input-group-addon + .input-group-btn > .btn {
+            border-radius: 0;
+        }
+        .bias-input-group .input-group-addon + .input-group-btn + .input-group-addon {
+            border-right: 0;
+            border-left: 0;
+        }
+        .promot-text {
+            color: #ff0000;
+        }
+        .font-10 {
+            font-size: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function (e) {
 
-			});
-		</script>
-		<title>多多点</title>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row bar">
-				<div class="col-xs-4">
-					<div id="select-category" class="input-group-btn bs-dropdown-to-select-group">
-						<button type="button" class="btn btn-primary dropdown-toggle as-is bs-dropdown-to-select" data-toggle="dropdown" tabindex="-1">
-							<span data-bind="bs-drp-sel-label">全部</span>
-							<input type="hidden" name="category" data-bind="bs-drp-sel-value" value="all">
-							<span class="caret"></span>
+            $(document).on('click', '.bs-dropdown-to-select-group .dropdown-menu li', function (event) {
+                var $target = $(event.currentTarget);
+                $target.closest('.bs-dropdown-to-select-group').find('[data-bind="bs-drp-sel-value"]').val($target.attr('data-value')).end().children('.dropdown-toggle').dropdown('toggle');
+                $target.closest('.bs-dropdown-to-select-group').find('[data-bind="bs-drp-sel-label"]').text($target.attr('data-name'));
+                /*$target.text()*/
+                return false;
+            });
 
-						</button>
-						<ul class="dropdown-menu" role="menu" style=" max-height: 300px; overflow: scroll; overflow-y: scroll; overflow-x: hidden; ">
-							<!-- Loop -->
-							<li data-value="all" data-name="全部">
-								<a href="#">
+        });
+    </script>
+    <title>多多点</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row bar">
+            <div class="col-xs-4">
+                <div id="select-category" class="input-group-btn bs-dropdown-to-select-group">
+                    <button type="button" class="btn btn-primary dropdown-toggle as-is bs-dropdown-to-select" data-toggle="dropdown" tabindex="-1">
+                        <span data-bind="bs-drp-sel-label">全部</span>
+                        <input type="hidden" name="category" data-bind="bs-drp-sel-value" value="all">
+                        <span class="caret"></span>
+
+                    </button>
+                    <ul class="dropdown-menu" role="menu" style=" max-height: 300px; overflow: scroll; overflow-y: scroll; overflow-x: hidden; ">
+                        <!-- Loop -->
+                        <li data-value="all" data-name="全部">
+                            <a href="#">
 									全部
 								</a>
-							</li>
-							<li data-value="cake" data-name="蛋糕">
-								<a href="#">
+                        </li>
+                        <li data-value="cake" data-name="蛋糕">
+                            <a href="#">
 									蛋糕
 								</a>
-							</li>
-							<li data-value="coffee" data-name="咖啡">
-								<a href="#">
+                        </li>
+                        <li data-value="coffee" data-name="咖啡">
+                            <a href="#">
 									咖啡
 								</a>
-							</li>
-							<li data-value="tea" data-name="茶">
-								<a href="#">
+                        </li>
+                        <li data-value="tea" data-name="茶">
+                            <a href="#">
 									茶
 								</a>
-							</li>
+                        </li>
 
-							<!-- END Loop -->
-						</ul>
-					</div>
-				</div>
-				<div id="title" class="col-xs-4 center-block">
-					<div>
-						多多点
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-4">
-					<div>
-						<img src="img/cake.jpg" class="img-responsive"/>
-						<div>99元</div>
-						<div>99元</div>
-					</div>
-				</div>
-				<div class="col-xs-4">
-					<div>
-						<img src="img/cake.jpg" class="img-responsive"/>
-						<div>99元</div>
-						<div>99元</div>
-					</div>
-				</div>
-				<div class="col-xs-4">
-					<div>
-						<img src="img/cake.jpg" class="img-responsive"/>
-						<div>99元</div>
-						<div>99元</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-4">
-					
-				</div>
-				<div class="col-xs-4">
-					
-				</div>
-				<div class="col-xs-4">
-					
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-4">
-					
-				</div>
-				<div class="col-xs-4">
-					
-				</div>
-				<div class="col-xs-4">
-					
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-4">
-					
-				</div>
-				<div class="col-xs-4">
-					
-				</div>
-				<div class="col-xs-4">
-					
-				</div>
-			</div>
-		</div>
-	</body>
+                        <!-- END Loop -->
+                    </ul>
+                </div>
+            </div>
+            <div id="title" class="col-xs-4 center-block">
+                <div>
+                    多多点
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <div>
+                    <img src="img/cake.jpg" class="img-responsive" />
+                    <div class="row">
+                        <div class="col-xs-7 font-10">神马蛋糕</div>
+                        <div class="col-xs-5 pull-right font-10">99元</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 promot-text font-10">值得买</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div>
+                    <img src="img/cake.jpg" class="img-responsive" />
+                    <div class="row">
+                        <div class="col-xs-7 font-10">神马蛋糕</div>
+                        <div class="col-xs-5 pull-right font-10">99元</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 promot-text font-10">买二送一</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div>
+                    <img src="img/cake.jpg" class="img-responsive" />
+                    <div class="row">
+                        <div class="col-xs-7 font-10">神马蛋糕</div>
+                        <div class="col-xs-5 pull-right font-10">99元</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 promot-text font-10">特价</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <div>
+                    <img src="img/cake.jpg" class="img-responsive" />
+                    <div class="row">
+                        <div class="col-xs-7 font-10">神马蛋糕</div>
+                        <div class="col-xs-5 pull-right font-10">99元</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 promot-text font-10">特特价</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+
+            </div>
+            <div class="col-xs-4">
+
+            </div>
+            <div class="col-xs-4">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+
+            </div>
+            <div class="col-xs-4">
+
+            </div>
+            <div class="col-xs-4">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+
+            </div>
+            <div class="col-xs-4">
+
+            </div>
+            <div class="col-xs-4">
+
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
