@@ -5,12 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Latest compiled and minified CSS -->
-    <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+    <script src="shop/bootstrap-select.min.js"></script>
+    <link href="shop/bootstrap-select.min.css" rel="stylesheet" />
     <style>
         body {
             background-color: #FFFFcc
@@ -29,7 +31,16 @@
             font-size: 20px;
             color: #ffffff;
         }
+        
+        .font-10{
+            font-size: 10px;
+        }
     </style>
+    <script>
+        $(document).ready(function (e) {
+              $('.selectpicker').selectpicker();
+        });
+    </script>
     <title>蛋糕详情</title>
 </head>
 
@@ -95,6 +106,20 @@
                 <p>
                     <br />
                 </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <strong class="font-10">
+                    请选择品种：
+                </strong>
+            </div>
+            <div class="col-xs-5">
+                <select class="selectpicker">
+                    <option>6寸，99元</option>
+                    <option>8寸，119元</option>
+                    <option>10寸，139元</option>
+                </select>
             </div>
         </div>
     </div>
