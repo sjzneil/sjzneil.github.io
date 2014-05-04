@@ -2,74 +2,83 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Latest compiled and minified CSS -->
     <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="./css/mycss.css" rel="stylesheet">-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
-    <!--
-    <script src="https://raw.githubusercontent.com/danielfarrell/bootstrap-combobox/master/js/bootstrap-combobox.js"></script>
-    <link href="https://raw.githubusercontent.com/danielfarrell/bootstrap-combobox/master/css/bootstrap-combobox.css" rel="stylesheet">
--->
+
 
     <style>
         body {
             background-color: #FFFFcc
         }
+
         .bar {
             background-color: #0074C7;
             height: 50px;
         }
+
         .center {
             height: 50px;
             line-height: 50px;
             text-align: center;
             vertical-align: middle;
         }
+
         #title {
             font-size: 20px;
             color: #ffffff;
         }
+
         .font-15 {
             font-size: 15px;
             vertical-align: middle;
         }
+
         .bottom {
             position: absolute;
             bottom: 0px;
             width: 100%;
         }
+
         .order-cell {
             height: 130px;
         }
+
         .order-cell-info {
             height: 100px;
             /*            position: relative;*/
         }
+
         .order-img {
             width: auto;
             height: 100px;
         }
+
         .order-price {
             text-align: right;
         }
-        .total-price{
+
+        .total-price {
             color: #ff0000;
             font-size: 17px;
         }
-        .font-17{
+
+        .font-17 {
             font-size: 17px;;
         }
+
         .order-count {
             text-align: right;
             vertical-align: middle;
             line-height: 35px;
         }
+
         .vcenter {
             display: inline-block;
             vertical-align: middle;
@@ -78,257 +87,259 @@
 
     </style>
     <script>
-        var items=[{
-            id: 0,
-            name: '蛋糕',
-            desc: '特价',
-            price: 99,
-            count:1,
-            image: "./img/cake.jpg"
-        }, {
-            id: 1,
-            name: '蛋糕',
-            desc: '买二送一',
-            price: 99,
-            count:1,
-            image: "./img/cake.jpg"
-        } ];
+        var items = [
+            {
+                id: 0,
+                name: '蛋糕',
+                desc: '特价',
+                price: 99,
+                count: 1,
+                image: "./img/cake.jpg"
+            },
+            {
+                id: 1,
+                name: '蛋糕',
+                desc: '买二送一',
+                price: 99,
+                count: 1,
+                image: "./img/cake.jpg"
+            }
+        ];
         var inputNumberChange = function ($target, val) {
 
             var updatename = $target.attr("data-updatefield");
-            $("div[name='"+updatename+"']").text(val * 99+"元");
-            var model=$target.attr("data-model-id");
-            var item=eval(model);
-            item.count=val;
-            var total=0;
-            items.forEach(function(e){
-                total+= e.price* e.count;
+            $("div[name='" + updatename + "']").text(val * 99 + "元");
+            var model = $target.attr("data-model-id");
+            var item = eval(model);
+            item.count = val;
+            var total = 0;
+            items.forEach(function (e) {
+                total += e.price * e.count;
             });
-            $("#total_price").text(total+"元");
-//            alert(item.name);
+            $("#total_price").text(total + "元");
         };
-        function ordernow(){
-            window.location="./shop.html";
+        function ordernow() {
+            window.location = "./shop.html";
         }
         $(document).ready(function (e) {
-            $('.row').css('.vcenter');
-//            $('.selectpicker').selectpicker();
-//            $.getScript("./js/myjs.js");
-            //            $('.selectpicker').selectpicker();
-            //            $('.combobox').combobox();
+
         });
     </script>
     <title>购物车</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row bar">
-            <div id="title" class="center-block center">
-                <div>
-                    购物车
-                </div>
-            </div>
-        </div>
-        <div id="list">
-            <div class="row order-cell">
-                <div class="col-xs-4 col-md-2">
-                    <div class="row">
-                        <img src="./img/cake.jpg" alt="" class="pull-right order-img">
-                    </div>
-                </div>
-                <div class="col-xs-7 col-md-8 order-cell-info">
-                    <div class="row">
-                        <div class="col-xs-7">
-                            生日蛋糕 8寸
-                        </div>
-                        <div name="price[0]" class="col-xs-5 pull-right order-price">
-                            119元
-                        </div>
-                    </div>
-                    <div class="row bottom">
-                        <div class="col-xs-5 order-count">
-                            数量：
-                        </div>
-                        <div class="input-group col-xs-7 pull-right">
-                            <span class="input-group-btn">
-						<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[0]">
-							<span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                            </span>
-                            <input type="text" name="quant[0]" class="form-control input-number" value="1" min="1" max="10" data-updatefield="price[0]" data-model-id="items[0]">
-                            <span class="input-group-btn">
-						<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[0]">
-							<span class="glyphicon glyphicon-plus"></span>
-                            </button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row order-cell">
-                <div class="col-xs-4 col-md-2">
-                    <div class="row">
-                        <img src="./img/cake.jpg" alt="" class="pull-right order-img">
-                    </div>
-                </div>
-                <div class="col-xs-7 col-md-8 order-cell-info">
-                    <div class="row">
-                        <div class="col-xs-7">
-                            生日蛋糕 8寸
-                        </div>
-                        <div name="price[1]" class="col-xs-5 pull-right order-price">
-                            119元
-                        </div>
-                    </div>
-                    <div class="row bottom">
-                        <div class="col-xs-5 order-count">
-                            数量：
-                        </div>
-                        <div class="input-group col-xs-7 pull-right">
-                            <span class="input-group-btn">
-						<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-							<span class="glyphicon glyphicon-minus"></span>
-                            </button>
-                            </span>
-                            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10" data-updatefield="price[1]" data-model-id="items[1]">
-                            <span class="input-group-btn">
-						<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
-							<span class="glyphicon glyphicon-plus"></span>
-                            </button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row order-price font-17">
-                    <strong>总计:</strong>
-                </div>
-            </div>
-            <div id="total_price" class="col-xs-7 total-price">
-                <strong>200元</strong>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1">
-                <p></p>
-            </div>
-        </div>
-        <div class="row ">
-            <div class="col-xs-4 vcenter">
-                <div class="row order-price font-17">
-                    <strong>您的称呼:</strong>
-                </div>
-            </div>
-
-            <div class="col-xs-7 vcenter">
-                    <input id="username" name="username" type="text" class="form-control" placeholder="">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1">
-                <p></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row order-price font-17">
-                    <strong>送货地址:</strong>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <select id="city" class="selectpicker col-xs-12">
-                    <option value="0">北京</option>
-                    <option value="1">天津</option>
-                    <option value="2">上海</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1">
-                <p></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row order-price font-17">
-                    <strong></strong>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                <select id="district" class="selectpicker col-xs-12">
-                    <option value="0">朝阳</option>
-                    <option value="1">东城</option>
-                    <option value="2">西城</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1">
-                <p></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-            </div>
-            <div class="col-xs-7">
-                <input id="address" name="address" type="text" class="form-control" placeholder="请输入详细收货地址">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1">
-                <p></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row order-price font-17">
-                    <strong>送货方式:</strong>
-                </div>
-            </div>
-            <div class="col-xs-7 col-xs-offset-1">
-                <div class="row">
-                    <label class="radio-inline">
-                        <input type="radio" name="delivertype" id="homedeliver" value="0">送货上门
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="delivertype" id="takedeliver" value="1">自行取货
-                    </label>
-                </div>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-xs-1">
-                <p></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <div class="row order-price font-17">
-                    <strong>留言:</strong>
-                </div>
-            </div>
-            <div class="col-xs-7">
-                <div class="control-group">
-                    <div class="controls">
-                        <textarea id="textarea"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-1">
-                <p></p>
-            </div>
-        </div>
-        <div class="row">
-            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="ordernow({})">下单</button>
+<div class="container">
+<div class="row bar">
+    <div id="title" class="center-block center">
+        <div>
+            购物车
         </div>
     </div>
+</div>
+<div id="list">
+    <div class="row order-cell">
+        <div class="col-xs-4 col-md-2">
+            <div class="row">
+                <img src="./img/cake.jpg" alt="" class="pull-right order-img">
+            </div>
+        </div>
+        <div class="col-xs-7 col-md-8 order-cell-info">
+            <div class="row">
+                <div class="col-xs-7">
+                    生日蛋糕 8寸
+                </div>
+                <div name="price[0]" class="col-xs-5 pull-right order-price">
+                    119元
+                </div>
+            </div>
+            <div class="row bottom">
+                <div class="col-xs-5 order-count">
+                    数量：
+                </div>
+                <div class="input-group col-xs-7 pull-right">
+                            <span class="input-group-btn">
+						<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus"
+                                data-field="quant[0]">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                            </span>
+                    <input type="text" name="quant[0]" class="form-control input-number" value="1" min="1" max="10"
+                           data-updatefield="price[0]" data-model-id="items[0]">
+                            <span class="input-group-btn">
+						<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[0]">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row order-cell">
+        <div class="col-xs-4 col-md-2">
+            <div class="row">
+                <img src="./img/cake.jpg" alt="" class="pull-right order-img">
+            </div>
+        </div>
+        <div class="col-xs-7 col-md-8 order-cell-info">
+            <div class="row">
+                <div class="col-xs-7">
+                    生日蛋糕 8寸
+                </div>
+                <div name="price[1]" class="col-xs-5 pull-right order-price">
+                    119元
+                </div>
+            </div>
+            <div class="row bottom">
+                <div class="col-xs-5 order-count">
+                    数量：
+                </div>
+                <div class="input-group col-xs-7 pull-right">
+                            <span class="input-group-btn">
+						<button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus"
+                                data-field="quant[1]">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                            </span>
+                    <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10"
+                           data-updatefield="price[1]" data-model-id="items[1]">
+                            <span class="input-group-btn">
+						<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="row order-price font-17">
+            <strong>总计:</strong>
+        </div>
+    </div>
+    <div id="total_price" class="col-xs-7 total-price">
+        <strong>200元</strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1">
+        <p></p>
+    </div>
+</div>
+<div class="row ">
+    <div class="col-xs-4 vcenter">
+        <div class="row order-price font-17">
+            <strong>您的称呼:</strong>
+        </div>
+    </div>
+
+    <div class="col-xs-7 vcenter">
+        <input id="username" name="username" type="text" class="form-control" placeholder="">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1">
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="row order-price font-17">
+            <strong>送货地址:</strong>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <select id="city" class="selectpicker col-xs-12">
+            <option value="0">北京</option>
+            <option value="1">天津</option>
+            <option value="2">上海</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1">
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="row order-price font-17">
+            <strong></strong>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <select id="district" class="selectpicker col-xs-12">
+            <option value="0">朝阳</option>
+            <option value="1">东城</option>
+            <option value="2">西城</option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1">
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+    </div>
+    <div class="col-xs-7">
+        <input id="address" name="address" type="text" class="form-control" placeholder="请输入详细收货地址">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1">
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="row order-price font-17">
+            <strong>送货方式:</strong>
+        </div>
+    </div>
+    <div class="col-xs-7 col-xs-offset-1">
+        <div class="row">
+            <label class="radio-inline">
+                <input type="radio" name="delivertype" id="homedeliver" value="0">送货上门
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="delivertype" id="takedeliver" value="1">自行取货
+            </label>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-1">
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">
+        <div class="row order-price font-17">
+            <strong>留言:</strong>
+        </div>
+    </div>
+    <div class="col-xs-7">
+        <div class="control-group">
+            <div class="controls">
+                <textarea id="textarea"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1">
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="ordernow({})">下单</button>
+</div>
+</div>
 </body>
 <script src="./js/myjs.js"></script>
 
