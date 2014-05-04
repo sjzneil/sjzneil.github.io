@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Latest compiled and minified CSS -->
     <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/mycss.css" rel="stylesheet">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
@@ -61,6 +62,9 @@
             color: #ff0000;
             font-size: 17px;
         }
+        .font-17{
+            font-size: 17px;;
+        }
         .order-count {
             text-align: right;
             vertical-align: middle;
@@ -82,21 +86,7 @@
             price: 99,
             count:1,
             image: "./img/cake.jpg"
-        }, {
-            id: 2,
-            name: '蛋糕',
-            desc: '值得买',
-            price: 99,
-            count:1,
-            image: "./img/cake.jpg"
-        }, {
-            id: 3,
-            name: '蛋糕',
-            desc: '吐血白菜价',
-            price: 99,
-            count:1,
-            image: "./img/cake.jpg"
-        }, ];
+        } ];
         var inputNumberChange = function ($target, val) {
 
             var updatename = $target.attr("data-updatefield");
@@ -202,13 +192,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-4">
-                <div class="row order-price">
-                    总计:
+            <div class="col-xs-5">
+                <div class="row order-price font-17">
+                    <strong>总计:</strong>
                 </div>
             </div>
             <div id="total_price" class="col-xs-7 total-price">
                 <strong>200元</strong>
+            </div>
+        </div>
+        <div class="row row-xs-height">
+            <div class="col-xs-5 col-xs-height col-middle">
+                <div class="row order-price font-17">
+                    <strong>您的称呼:</strong>
+                </div>
+            </div>
+            <div class="col-xs-7 col-xs-height col-middle">
+
+                    <input id="username" name="username" type="text" class="form-control" placeholder="">
+
             </div>
         </div>
     </div>
