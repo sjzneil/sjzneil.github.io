@@ -68,9 +68,48 @@
         }
     </style>
     <script>
+        var items=[{
+            id: 0,
+            name: '蛋糕',
+            desc: '特价',
+            price: 99,
+            count:1,
+            image: "./img/cake.jpg"
+        }, {
+            id: 1,
+            name: '蛋糕',
+            desc: '买二送一',
+            price: 99,
+            count:1,
+            image: "./img/cake.jpg"
+        }, {
+            id: 2,
+            name: '蛋糕',
+            desc: '值得买',
+            price: 99,
+            count:1,
+            image: "./img/cake.jpg"
+        }, {
+            id: 3,
+            name: '蛋糕',
+            desc: '吐血白菜价',
+            price: 99,
+            count:1,
+            image: "./img/cake.jpg"
+        }, ];
         var inputNumberChange = function ($target, val) {
+
             var updatename = $target.attr("data-updatefield");
             $("div[name='"+updatename+"']").text(val * 99+"元");
+            var model=$target.attr("data-model-id");
+            var item=eval(model);
+            item.count=val;
+            var total=0;
+            items.forEach(function(e){
+                total+= e.price* e.count;
+            });
+            $("#total_price").text(total+"元");
+//            alert(item.name);
         };
         $(document).ready(function (e) {
 //            $.getScript("./js/myjs.js");
@@ -116,7 +155,7 @@
 							<span class="glyphicon glyphicon-minus"></span>
                             </button>
                             </span>
-                            <input type="text" name="quant[0]" class="form-control input-number" value="1" min="1" max="10" data-updatefield="price[0]">
+                            <input type="text" name="quant[0]" class="form-control input-number" value="1" min="1" max="10" data-updatefield="price[0]" data-model-id="items[0]">
                             <span class="input-group-btn">
 						<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[0]">
 							<span class="glyphicon glyphicon-plus"></span>
@@ -151,7 +190,7 @@
 							<span class="glyphicon glyphicon-minus"></span>
                             </button>
                             </span>
-                            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10" data-updatefield="price[1]">
+                            <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10" data-updatefield="price[1]" data-model-id="items[1]">
                             <span class="input-group-btn">
 						<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
 							<span class="glyphicon glyphicon-plus"></span>
@@ -168,7 +207,7 @@
                     总计:
                 </div>
             </div>
-            <div class="col-xs-7 total-price">
+            <div id="total_price" class="col-xs-7 total-price">
                 <strong>200元</strong>
             </div>
         </div>
